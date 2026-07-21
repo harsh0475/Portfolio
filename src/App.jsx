@@ -15,7 +15,7 @@ const projects = [
     tech: "React • FastAPI • PostgreSQL • JWT • Redux Toolkit",
     desc: "Full-stack food ordering platform with authentication, RBAC, wishlist, reviews and admin dashboard.",
     github: "https://github.com/harsh0475",
-    live: "#",
+    live: "https://bake-n-bite-app.vercel.app/",
     image: "/bake-n-bite.png",
   },
   {
@@ -23,7 +23,7 @@ const projects = [
     tech: "React • FastAPI • Python • XGBoost",
     desc: "Metro crowd prediction dashboard with ML-powered staffing recommendations.",
     github: "https://github.com/harsh0475",
-    live: "#",
+    live: "https://metro-crowd-prediction-and-staff-allocation-model.vercel.app/",
     image: "/metro-crowd-prediction.png",
   },
 ];
