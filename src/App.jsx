@@ -20,7 +20,7 @@ const projects = [
   },
   {
     title: "Crowd Prediction & Staff Allocation",
-    tech: "React • FastAPI • Python • XGBoost • PostgreSQL",
+    tech: "React • FastAPI • Python • XGBoost",
     desc: "Metro crowd prediction dashboard with ML-powered staffing recommendations.",
     github: "https://github.com/harsh0475",
     live: "#",
@@ -97,7 +97,6 @@ export default function App() {
             <ul className="list-disc pl-5 mt-4 text-zinc-400 space-y-2">
               <li>Developed Python-based prediction pipelines.</li>
               <li>Automated preprocessing and feature engineering.</li>
-              <li>Collaborated using Git and modular code.</li>
               <li>Evaluated multiple machine learning models.</li>
             </ul>
           </div>
