@@ -1,5 +1,5 @@
 import React from "react";
-import { motion } from "framer-motion";
+import { motion as Motion } from "framer-motion";
 import { FaGithub, FaLinkedin, FaDownload } from "react-icons/fa";
 
 const skills = [
@@ -10,6 +10,13 @@ const skills = [
 ];
 
 const projects = [
+  {
+    title: "HireFlow",
+    tech: "Next.js • TypeScript • Spring Boot • PostgreSQL • JWT",
+    desc: "Full-stack recruitment management system with role-based workflows for candidates, recruiters and administrators.",
+    github: "https://github.com/harsh0475/HireFlow",
+    image: null,
+  },
   {
     title: "Bake N Bite",
     tech: "React • FastAPI • PostgreSQL • JWT • Redux Toolkit",
@@ -44,7 +51,7 @@ export default function App() {
         </div>
       </nav>
 
-      <motion.section initial={{opacity:0,y:30}} animate={{opacity:1,y:0}} className="max-w-6xl mx-auto px-6 py-24 text-center">
+      <Motion.section initial={{opacity:0,y:30}} animate={{opacity:1,y:0}} className="max-w-6xl mx-auto px-6 py-24 text-center">
         <img
           src="/profile.jpg"
           alt="Harshit Kumar Singh"
@@ -77,7 +84,7 @@ export default function App() {
             <FaLinkedin /> LinkedIn
           </a>
         </div>
-      </motion.section>
+      </Motion.section>
 
       <section id="about" className="max-w-5xl mx-auto px-6 py-16">
         <h2 className="text-3xl font-bold mb-6">About Me</h2>
@@ -127,7 +134,13 @@ export default function App() {
           <div className="grid md:grid-cols-2 gap-8">
             {projects.map((p) => (
               <div key={p.title} className="rounded-2xl overflow-hidden border border-zinc-800 bg-zinc-900 hover:border-blue-500 transition">
-                <img src={p.image} alt={p.title} className="w-full h-56 object-cover" />
+                {p.image ? (
+                  <img src={p.image} alt={p.title} className="w-full h-56 object-cover" />
+                ) : (
+                  <div className="w-full h-56 bg-gradient-to-br from-blue-950 via-indigo-950 to-zinc-950 flex items-center justify-center">
+                    <span className="text-3xl font-black tracking-tight text-blue-200">HireFlow</span>
+                  </div>
+                )}
                 <div className="p-6">
                   <h3 className="text-xl font-bold">{p.title}</h3>
                   <p className="text-blue-400 text-sm mt-2">{p.tech}</p>
@@ -135,7 +148,9 @@ export default function App() {
 
                   <div className="flex gap-5 mt-6">
                     <a href={p.github} target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">GitHub</a>
-                    <a href={p.live} target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">Live Demo</a>
+                    {p.live && (
+                      <a href={p.live} target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">Live Demo</a>
+                    )}
                   </div>
                 </div>
               </div>
