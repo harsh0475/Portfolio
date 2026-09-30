@@ -129,7 +129,7 @@ export default function App() {
           className="mx-auto h-40 w-40 rounded-full border-4 border-blue-500 object-cover shadow-xl shadow-blue-950/30"
         />
 
-        <p className="mt-8 text-sm font-semibold uppercase tracking-[0.28em] text-blue-400">Full-stack engineer | ML practitioner</p>
+        <p className="mt-8 text-sm font-semibold uppercase tracking-[0.28em] text-blue-400">Full-stack engineer </p>
         <h1 id="hero-title" className="mt-5 text-4xl font-black tracking-tight md:text-7xl">Harshit Kumar Singh</h1>
         <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-zinc-400 md:text-xl">
           I build secure APIs, scalable backend systems and data-driven products with React, Java, Python and PostgreSQL.
@@ -176,7 +176,7 @@ export default function App() {
           <article className="rounded-2xl border border-zinc-800 bg-zinc-900/60 p-6 md:p-8">
             <div className="flex flex-col justify-between gap-2 md:flex-row md:items-start">
               <div>
-                <h3 className="text-xl font-semibold">Machine Learning Intern | CRIS</h3>
+                <h3 className="text-xl font-semibold">Summer Intern | CRIS</h3>
                 <p className="mt-1 text-zinc-500">May 2026 - Jul 2026</p>
               </div>
               <span className="w-fit rounded-full border border-blue-900/70 bg-blue-950/30 px-3 py-1 text-xs font-medium text-blue-300">Machine Learning</span>
