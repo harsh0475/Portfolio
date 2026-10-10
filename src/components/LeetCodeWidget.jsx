@@ -4,33 +4,37 @@ import { SiLeetcode } from "react-icons/si";
 
 // Baseline snapshot data from LeetCode for harsh_0470 to ensure instant rendering without delay
 const INITIAL_STATS = {
-  totalSolved: 111,
-  totalQuestions: 4069,
-  easySolved: 37,
-  totalEasy: 968,
-  mediumSolved: 63,
-  totalMedium: 2122,
-  hardSolved: 11,
-  totalHard: 979,
-  ranking: 1587603,
-  streak: 43,
-  totalActiveDays: 43,
-  totalSubmissionsYear: 123,
-  badgesCount: 0,
-  lockedBadge: "Sep LeetCoding Challenge",
+  totalSolved: 124,
+  totalQuestions: 4073,
+  easySolved: 38,
+  totalEasy: 969,
+  mediumSolved: 73,
+  totalMedium: 2124,
+  hardSolved: 13,
+  totalHard: 980,
+  ranking: 1414952,
+  streak: 53,
+  totalActiveDays: 53,
+  totalSubmissionsYear: 139,
+  badgesCount: 1,
+  activeBadge: "50 Days Badge 2026",
+  badgeIcon: "https://assets.leetcode.com/static_assets/others/50_1080_1080.png",
+  lockedBadge: "Oct LeetCoding Challenge",
 };
 
 // Fallback active submission dates (UTC timestamps) verified from LeetCode API
 const INITIAL_SUBMISSIONS = {
   "1787097600": 2, "1787184000": 1, "1787270400": 6, "1787356800": 4, "1787443200": 3,
-  "1787529600": 5, "1787616000": 1, "1787702400": 2, "1787788800": 3, "1787875200": 2,
-  "1787961600": 1, "1788048000": 4, "1788134400": 2, "1788220800": 3, "1788307200": 5,
-  "1788393600": 2, "1788480000": 3, "1788566400": 1, "1788652800": 4, "1788739200": 2,
-  "1788825600": 3, "1788912000": 4, "1788998400": 2, "1789084800": 3, "1789171200": 5,
-  "1789257600": 2, "1789344000": 3, "1789430400": 4, "1789516800": 2, "1789603200": 3,
-  "1789689600": 1, "1789776000": 4, "1789862400": 2, "1789948800": 3, "1790035200": 5,
-  "1790121600": 2, "1790208000": 3, "1790294400": 1, "1790380800": 4, "1790467200": 2,
-  "1790553600": 2, "1790640000": 3, "1790726400": 4
+  "1787529600": 2, "1787616000": 4, "1787702400": 5, "1787788800": 2, "1787875200": 4,
+  "1787961600": 3, "1788048000": 6, "1788134400": 3, "1788220800": 7, "1788307200": 2,
+  "1788393600": 2, "1788480000": 5, "1788566400": 3, "1788652800": 1, "1788739200": 1,
+  "1788825600": 3, "1788912000": 2, "1788998400": 4, "1789084800": 2, "1789171200": 6,
+  "1789257600": 2, "1789344000": 4, "1789430400": 3, "1789516800": 1, "1789603200": 4,
+  "1789689600": 4, "1789776000": 2, "1789862400": 3, "1789948800": 1, "1790035200": 1,
+  "1790121600": 2, "1790208000": 1, "1790294400": 1, "1790380800": 1, "1790467200": 1,
+  "1790553600": 2, "1790640000": 3, "1790726400": 4, "1790812800": 3, "1790899200": 3,
+  "1790985600": 1, "1791072000": 1, "1791158400": 1, "1791244800": 1, "1791331200": 2,
+  "1791417600": 2, "1791504000": 1, "1791590400": 1
 };
 
 export default function LeetCodeWidget() {
@@ -109,20 +113,20 @@ export default function LeetCodeWidget() {
 
   // Generate the 12 month columns data
   const monthsData = useMemo(() => {
-    // Oct 2025 through Sep 2026
+    // Jul 2026 through Jun 2027 (12-month calendar window starting July 2026 to next year)
     const monthConfigs = [
-      { name: "Oct", year: 2025, month: 9 },
-      { name: "Nov", year: 2025, month: 10 },
-      { name: "Dec", year: 2025, month: 11 },
-      { name: "Jan", year: 2026, month: 0 },
-      { name: "Feb", year: 2026, month: 1 },
-      { name: "Mar", year: 2026, month: 2 },
-      { name: "Apr", year: 2026, month: 3 },
-      { name: "May", year: 2026, month: 4 },
-      { name: "Jun", year: 2026, month: 5 },
       { name: "Jul", year: 2026, month: 6 },
       { name: "Aug", year: 2026, month: 7 },
       { name: "Sep", year: 2026, month: 8 },
+      { name: "Oct", year: 2026, month: 9 },
+      { name: "Nov", year: 2026, month: 10 },
+      { name: "Dec", year: 2026, month: 11 },
+      { name: "Jan", year: 2027, month: 0 },
+      { name: "Feb", year: 2027, month: 1 },
+      { name: "Mar", year: 2027, month: 2 },
+      { name: "Apr", year: 2027, month: 3 },
+      { name: "May", year: 2027, month: 4 },
+      { name: "Jun", year: 2027, month: 5 },
     ];
 
     return monthConfigs.map((m) => {
@@ -341,22 +345,34 @@ export default function LeetCodeWidget() {
               <p className="text-3xl font-bold text-white mt-1">{stats.badgesCount}</p>
             </div>
 
-            {/* Hexagonal Watermark / Badge Emblem */}
-            <div className="relative w-16 h-16 opacity-30 flex items-center justify-center">
-              <svg viewBox="0 0 100 100" className="w-full h-full text-zinc-500 fill-current">
-                <polygon points="50 3, 90 25, 90 75, 50 97, 10 75, 10 25" fill="none" stroke="currentColor" strokeWidth="4" />
-                <polygon points="50 12, 82 30, 82 70, 50 88, 18 70, 18 30" fill="none" stroke="currentColor" strokeWidth="2" strokeDasharray="3 3" />
-                <text x="50" y="55" textAnchor="middle" fontSize="18" fontWeight="bold" fill="currentColor">9 SEP</text>
-              </svg>
+            {/* Unlocked Badge Emblem */}
+            <div className="relative w-16 h-16 flex items-center justify-center">
+              <img
+                src={stats.badgeIcon || "https://assets.leetcode.com/static_assets/others/50_1080_1080.png"}
+                alt={stats.activeBadge || "50 Days Badge 2026"}
+                className="w-14 h-14 object-contain drop-shadow-[0_0_14px_rgba(255,161,22,0.4)]"
+                onError={(e) => {
+                  e.currentTarget.style.display = "none";
+                }}
+              />
             </div>
           </div>
 
           {/* Bottom Section */}
-          <div className="mt-6 pt-4 border-t border-white/[0.04]">
-            <p className="text-[11px] text-zinc-400 font-medium">Locked Badge</p>
-            <p className="text-sm font-semibold text-white mt-0.5 tracking-tight flex items-center gap-1.5">
-              <span>{stats.lockedBadge}</span>
-            </p>
+          <div className="mt-6 pt-4 border-t border-white/[0.04] flex items-center justify-between">
+            <div>
+              <p className="text-[11px] text-zinc-400 font-medium">Most Recent Badge</p>
+              <p className="text-sm font-semibold text-white mt-0.5 tracking-tight flex items-center gap-1.5">
+                <span className="text-[#ffa116]">★</span>
+                <span>{stats.activeBadge}</span>
+              </p>
+            </div>
+            <div className="text-right">
+              <p className="text-[11px] text-zinc-400 font-medium">Next Target</p>
+              <p className="text-xs font-semibold text-zinc-300 mt-0.5 tracking-tight">
+                {stats.lockedBadge}
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -374,7 +390,7 @@ export default function LeetCodeWidget() {
             </span>
             <span
               className="text-zinc-500 text-xs cursor-help inline-flex items-center justify-center ml-0.5"
-              title="Verified submissions over the past 52 weeks"
+              title="Verified submissions starting July 2026 to next year"
             >
               ⓘ
             </span>
@@ -390,7 +406,7 @@ export default function LeetCodeWidget() {
 
             {/* Dropdown pill button */}
             <div className="rounded-lg bg-[#373737] border border-white/[0.08] px-2.5 py-1 text-xs text-zinc-300 font-medium flex items-center gap-1.5 cursor-default">
-              <span>Current</span>
+              <span>Jul &apos;26 – Jun &apos;27</span>
               <span className="text-[10px] text-zinc-400">⌵</span>
             </div>
           </div>
@@ -445,7 +461,13 @@ export default function LeetCodeWidget() {
               <div>
                 {hoveredDay ? (
                   <span className="text-zinc-200">
-                    <strong className="text-emerald-400">{hoveredDay.count}</strong> submission{hoveredDay.count === 1 ? "" : "s"} on {hoveredDay.dateStr}
+                    {hoveredDay.count > 0 ? (
+                      <>
+                        <strong className="text-emerald-400">{hoveredDay.count}</strong> submission{hoveredDay.count === 1 ? "" : "s"} on {hoveredDay.dateStr}
+                      </>
+                    ) : (
+                      <>No submissions on {hoveredDay.dateStr}</>
+                    )}
                   </span>
                 ) : (
                   <span className="text-zinc-500">Hover over any square to view submissions</span>
